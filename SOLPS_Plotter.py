@@ -368,8 +368,8 @@ class SOLPSPLOT(object):
         
         else:
             
-            BASEDRT = '{}/{}/{}'.format(BASEDRT,DEV,Shot)
-            GFILE = glob.glob('{}/{}/g{}*'.format(TOPDRT, DEV, Shot))
+            BASEDRT = '{}/{}/{}'.format(BASEDRT, DEV, Shot)
+            GFILE = glob.glob('{}/{}/{}/g{}*'.format(TOPDRT, DEV, Shot, Shot))
             print(GFILE)
             GF = eq.equilibrium(gfile=GFILE[-1])
             if EXP:
