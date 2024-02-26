@@ -22,7 +22,7 @@ import json
 
 Shot = '027205'
 Attempt = ['45']
-DEV='mast'
+DEV= 'mast'
 GasLvl = 0
 Balloon = 0
 
@@ -34,7 +34,7 @@ EXPORTYPE='json' #Either 'json' or 'nc'
 
 ### Setting up Base Variables ###
 
-NeuDen = SOLPSPLOT(Shot,Attempt,['Ne','NeuDen'],DEV=DEV,EXP=False,AVG=False,PlotScheme='')#,ROOTSHOT='')
+NeuDen = SOLPSPLOT(Shot,Attempt,['Ne','NeuDen'], DEV=DEV, EXP=False, AVG=False, PlotScheme='')#,ROOTSHOT='')
 
 JXA = NeuDen.KW['JXA']
 JXI = NeuDen.KW['JXI']
@@ -50,7 +50,7 @@ VertLoc = NeuDen.RadCoords['VertLoc']
 RR = NeuDen.GetRadCoords('rrsep',[0,0])[0]
 Psin = NeuDen.GetRadCoords('psin',[0,0])[0]
 plt.rc('font',size=15) 
-DRT='{}/Attempt{}/'.format(NeuDen.KW['BASEDRT'],Attempt[0])
+DRT='{}/Attempt{}/'.format(NeuDen.KW['BASEDRT'], Attempt[0])
 
 XP_range=np.array([CoreBound[0]-1,CoreBound[0],CoreBound[1],CoreBound[1]+1])
 X_xp=np.mean(RadLoc.loc[SEP,XP_range,Attempt[-1]].values) #(RadLoc.loc[36,JXA,Attempt[-1]].values+RadLoc.loc[36,JXI,Attempt[-1]].values)/2
