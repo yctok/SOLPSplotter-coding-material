@@ -21,9 +21,9 @@ import tools as tl
 
 
 d= tl.mast_dir_dic()
-basedrt, topdrt, tpdrt= tl.set_wdir()
+basedrt, topdrt = tl.set_wdir()
 
-newbase, drt, n, i = tl.mast_eir_dir('org')
+newbase, drt, n, i = tl.mast_eir_dir('dot7')
 
 dev = d['dev']
 shot = d['shot']
@@ -39,7 +39,7 @@ Attempt = n
 #               # 025 for 1100308004, 024 for 1100305023, 027 for 1080416025
 LOG=True
 Pressure=True
-Param='PDENA'
+Param='EDENA'
 B2=True
 B2_Param='NeuDen'
 
@@ -75,7 +75,7 @@ tz=np.loadtxt('{}/TriangVertLoc{}'.format(drt, str(Attempt)), usecols = (2))
               
 tr=np.loadtxt('{}/TriangRadLoc{}'.format(drt, str(Attempt)), usecols = (2))
 
-VVFILE = np.loadtxt('{}/{}/{}/{}/vvfile.ogr'.format(basedrt, dev, shot, shift))
+VVFILE = np.loadtxt('{}/{}/{}/{}/baserun/vvfile.ogr'.format(basedrt, dev, shot, shift))
 
 Parameter= EireneDict[Param]
 Data=np.loadtxt('{}/{}{}'.format(drt, Parameter['FileName'], str(Attempt)), usecols = (2))
@@ -178,6 +178,8 @@ Contour.set_aspect('equal')
 Contour.grid()
 Contour.set_xlabel('Radial Position R (m)')
 Contour.set_ylabel('Vertical Position Z (m)')
+# Contour.set_xlim(0, 2)
+# Contour.set_ylim(-2, -0.5)
 Contour.set_title('{}{} \n Shot{} Attempt{}'.format(LogTxt, Parameter['Label'], shot, Attempt))
 plt.colorbar(IM,ax=Contour)
 
