@@ -21,10 +21,15 @@ def set_wdir(): #Function to set correct Working Directory Path depending on whi
             basedrt = r"C:/Users/user/Documents/SOLPS data/simulation data"
             topdrt = r"C:/Users/user/Documents/SOLPS data/experiment data"
             tpdrt = r"C:/Users/user/Documents/GitHub/load-plot/poster_plot_generator"
+        
+        elif os.environ['USERNAME'] == 'ychuang':
+            basedrt = r"C:/Users/ychuang/Documents/SOLPS_data/simulation_data"
+            topdrt = r"C:/Users/ychuang/Documents/SOLPS_data/experimental_data"
+        
     else:
         print('please add new directory in tools')
     
-    return basedrt, topdrt, tpdrt
+    return basedrt, topdrt
 
 def a_number(text):
     name = text.split('\\',1)[1]
@@ -63,7 +68,8 @@ def mast_dir_dic():
     'dev': 'mast',
     'shot': '027205',
     'shift': ['org_new_series', 'dot3', 'dot5', 'dot7', 'one_LS'],
-    'series' : ['46_n100000_5c_nts5_a', '1_n5_dot3_a', '15_dn0.5hc0.05_ts5_dot5_a', '8_t1_dot7_a', '27_lsts5_tw_one_a']
+    'series' : ['76_n900000_leakbsol_nts5_a', '16_n900000_leakbtarnsol_dot3_a', '27_n900000_leakbtarnsol_dot5_a',
+              '15_n900000_leakbtarnsol_dot7_a']
     }
     return mast_dir_dic
 
@@ -102,7 +108,7 @@ def mast_tranco_dir(a_shift):
 
 def mast_eir_dir(a_shift):
     d= mast_dir_dic()
-    basedrt, topdrt, tpdrt= set_wdir()
+    basedrt, topdrt = set_wdir()
     shift_list = ['org', 'dot3', 'dot5', 'dot7', 'one']
     
     for s in shift_list:
